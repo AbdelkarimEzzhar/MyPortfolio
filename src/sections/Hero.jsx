@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import profileImage from '../assets/profile.jpg'
 
 export default function Hero({ setCurrentSection }) {
     const [currentTagline, setCurrentTagline] = useState(0)
@@ -159,28 +160,12 @@ export default function Hero({ setCurrentSection }) {
 
                             {/* Profile Picture Section */}
                             <div className="relative w-full h-full rounded-3xl border border-primary-200 dark:border-primary-800 bg-white/20 dark:bg-dark-900/20 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-                                {/* Check if image exists and display it */}
-                                <div className="w-full h-full relative">
-                                    {/* Placeholder for profile picture */}
-                                    <div className="w-full h-full bg-gradient-to-br from-primary-600 to-cyan-500 flex items-center justify-center">
-                                        <div className="text-center">
-                                            <div className="text-6xl text-white/50 mb-4">📸</div>
-                                            <p className="text-white/70 text-sm">Add your profile picture</p>
-                                            <p className="text-white/50 text-xs mt-2">Save an image as public/profile.jpg</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Try to display image if it exists */}
-                                    <img
-                                        src="/profile.jpg"
-                                        alt="Profile"
-                                        className="w-full h-full object-cover rounded-3xl"
-                                        onError={(e) => {
-                                            // If image fails to load, this will be hidden by the placeholder
-                                            e.target.style.display = 'none'
-                                        }}
-                                    />
-                                </div>
+                                {/* Display profile picture */}
+                                <img
+                                    src={profileImage}
+                                    alt="Abdelkarim Ezzhar - Professional Profile"
+                                    className="w-full h-full object-cover rounded-3xl"
+                                />
                             </div>
                         </motion.div>
                     </motion.div>
