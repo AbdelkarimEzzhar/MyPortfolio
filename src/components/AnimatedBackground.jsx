@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function AnimatedBackground() {
+    const containerRef = useRef(null)
+
     // Create multiple atoms - larger and more visible with diverse colors
     const atoms = [
         { id: 1, size: 150, x: '5%', y: '10%', duration: 8, color: 'from-cyan-500 to-blue-500' },
@@ -45,57 +48,59 @@ export default function AnimatedBackground() {
         </motion.div>
     )
 
-    // Atom component
-    const Atom = ({ size, x, y, duration, color }) => (
-        <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 0.5, scale: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            className="absolute"
-            style={{ left: x, top: y }}
-        >
-            {/* Outer orbit 1 */}
+    // Atom component - animated only
+    const Atom = ({ size, x, y, duration, color }) => {
+        return (
             <motion.div
-                className="absolute rounded-full border-2 border-cyan-400/60"
-                style={{
-                    width: size,
-                    height: size,
-                    left: -size / 2,
-                    top: -size / 2,
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: duration, repeat: Infinity, ease: 'linear' }}
-            />
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.5, scale: 1 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+                className="absolute"
+                style={{ left: x, top: y }}
+            >
+                {/* Outer orbit 1 */}
+                <motion.div
+                    className="absolute rounded-full border-2 border-cyan-400/60"
+                    style={{
+                        width: size,
+                        height: size,
+                        left: -size / 2,
+                        top: -size / 2,
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: duration, repeat: Infinity, ease: 'linear' }}
+                />
 
-            {/* Outer orbit 2 */}
-            <motion.div
-                className="absolute rounded-full border-2 border-blue-400/50"
-                style={{
-                    width: size * 0.6,
-                    height: size * 0.6,
-                    left: -size * 0.3,
-                    top: -size * 0.3,
-                }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: duration * 0.8, repeat: Infinity, ease: 'linear' }}
-            />
+                {/* Outer orbit 2 */}
+                <motion.div
+                    className="absolute rounded-full border-2 border-blue-400/50"
+                    style={{
+                        width: size * 0.6,
+                        height: size * 0.6,
+                        left: -size * 0.3,
+                        top: -size * 0.3,
+                    }}
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: duration * 0.8, repeat: Infinity, ease: 'linear' }}
+                />
 
-            {/* Center nucleus */}
-            <motion.div
-                className={`w-7 h-7 rounded-full bg-gradient-to-r ${color} shadow-2xl`}
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-            />
+                {/* Center nucleus */}
+                <motion.div
+                    className={`w-7 h-7 rounded-full bg-gradient-to-r ${color} shadow-2xl`}
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                />
 
-            {/* Orbiting electrons */}
-            <Electron delay={0} radius={size / 2.5} duration={duration * 0.7} />
-            <Electron delay={duration / 3} radius={size / 2.5} duration={duration * 0.7} />
-            <Electron delay={(duration * 2) / 3} radius={size / 2} duration={duration * 0.6} />
-        </motion.div>
-    )
+                {/* Orbiting electrons */}
+                <Electron delay={0} radius={size / 2.5} duration={duration * 0.7} />
+                <Electron delay={duration / 3} radius={size / 2.5} duration={duration * 0.7} />
+                <Electron delay={(duration * 2) / 3} radius={size / 2} duration={duration * 0.6} />
+            </motion.div>
+        )
+    }
 
     return (
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none">
             {/* Gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-white dark:from-dark-950 via-blue-50 dark:via-dark-900 to-cyan-50 dark:to-dark-900" />
 

@@ -22,7 +22,7 @@ export default function App() {
 
     // Section components mapping
     const sections = {
-        hero: <Hero />,
+        hero: <Hero setCurrentSection={setCurrentSection} />,
         about: <About />,
         skills: <Skills />,
         projects: <Projects />,
