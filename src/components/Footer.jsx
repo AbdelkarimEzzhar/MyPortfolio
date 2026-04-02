@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function Footer() {
@@ -97,14 +97,27 @@ export default function Footer() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col sm:flex-row items-center justify-between text-sm text-dark-600 dark:text-dark-400"
+                    className="text-center text-sm text-dark-600 dark:text-dark-400"
                 >
                     <p>
-                        © {currentYear} Abdelkarim Ezzhar. All rights reserved.
+                        © {currentYear} Abdelkarim Ezzhar Elidrissi . All rights reserved.
                     </p>
-                    <p className="flex items-center gap-1 mt-4 sm:mt-0">
-                        Made with <Heart size={16} className="text-red-500" /> using React & Tailwind CSS
-                    </p>
+                    <div className="flex justify-center gap-6 mt-6">
+                        {socialLinks.map((social) => (
+                            <motion.a
+                                key={social.label}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                className="flex items-center gap-2 text-dark-600 dark:text-dark-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm font-medium"
+                                aria-label={social.label}
+                            >
+                                <social.icon size={16} />
+                                {social.label}
+                            </motion.a>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </footer>

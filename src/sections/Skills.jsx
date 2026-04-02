@@ -103,44 +103,7 @@ export default function Skills() {
                     ))}
                 </motion.div>
 
-                {/* Proficiency Levels */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className="mt-16 p-8 rounded-xl bg-gradient-to-r from-primary-50 to-cyan-50 dark:from-dark-800 dark:to-dark-900 border border-primary-200 dark:border-primary-900"
-                >
-                    <h3 className="text-2xl font-bold mb-8">Proficiency Levels</h3>
-                    <div className="space-y-6">
-                        {[
-                            { name: 'DevOps & CI/CD', level: 90 },
-                            { name: 'Docker & Containerization', level: 85 },
-                            { name: 'Cloud Architecture', level: 80 },
-                            { name: 'Backend Development', level: 85 },
-                            { name: 'Frontend Development', level: 80 },
-                            { name: 'Database Design', level: 75 },
-                        ].map((skill) => (
-                            <div key={skill.name}>
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-dark-900 dark:text-white">
-                                        {skill.name}
-                                    </span>
-                                    <span className="text-sm font-bold text-primary-600">
-                                        {skill.level}%
-                                    </span>
-                                </div>
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: `${skill.level}%` }}
-                                    transition={{ duration: 1, ease: 'easeOut' }}
-                                    viewport={{ once: true }}
-                                    className="h-3 bg-gradient-to-r from-primary-600 to-cyan-500 rounded-full"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
+
             </div>
         </section>
     )

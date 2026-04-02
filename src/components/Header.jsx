@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X, Moon, Sun, Home, Info, Code, Briefcase, Mail as MailIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function Header({ isDark, setIsDark, currentSection, setCurrentSection }) {
     const [isOpen, setIsOpen] = useState(false)
 
     const navLinks = [
-        { label: 'Home', section: 'hero' },
-        { label: 'About', section: 'about' },
-        { label: 'Skills', section: 'skills' },
-        { label: 'Projects', section: 'projects' },
-        { label: 'Contact', section: 'contact' },
+        { label: 'Home', section: 'hero', icon: Home },
+        { label: 'About', section: 'about', icon: Info },
+        { label: 'Skills', section: 'skills', icon: Code },
+        { label: 'Projects', section: 'projects', icon: Briefcase },
+        { label: 'Contact', section: 'contact', icon: MailIcon },
     ]
 
     const handleSectionClick = (section) => {
@@ -33,7 +33,7 @@ export default function Header({ isDark, setIsDark, currentSection, setCurrentSe
                         whileHover={{ scale: 1.05 }}
                         className="text-2xl font-bold gradient-text cursor-pointer"
                     >
-                        AE
+                        AEE
                     </motion.button>
 
                     {/* Desktop Navigation */}
@@ -43,8 +43,8 @@ export default function Header({ isDark, setIsDark, currentSection, setCurrentSe
                                 key={link.label}
                                 onClick={() => handleSectionClick(link.section)}
                                 className={`text-sm font-medium transition-colors ${currentSection === link.section
-                                        ? 'text-primary-600 dark:text-primary-400 font-bold'
-                                        : 'text-dark-700 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400'
+                                    ? 'text-primary-600 dark:text-primary-400 font-bold'
+                                    : 'text-dark-700 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400'
                                     }`}
                             >
                                 {link.label}

@@ -5,6 +5,22 @@ export default function Projects() {
     const projects = [
         {
             id: 1,
+            title: 'Data Extraction from books.toscrape.com using Python',
+            description:
+                'Web scraping project extracting book data from toscrape.com using Python libraries for data analysis and collection.',
+            tags: ['Python', 'Requests', 'Beautiful Soup', 'Web Scraping', 'Data Collection'],
+            highlights: [
+                'Scraping book data using Requests & Beautiful Soup',
+                'Data extraction and parsing from dynamic web content',
+                'Structured data collection for analysis',
+                'Handling pagination and multiple pages',
+                'Data cleaning and organization',
+            ],
+            year: '2026',
+            github: 'https://github.com',
+        },
+        {
+            id: 2,
             title: 'MyHeart — Hospital Management Platform',
             description:
                 'Enterprise-scale microservices platform for hospital management with 8 independent services, multi-database strategy, and distributed transaction handling via Apache Kafka.',
@@ -20,7 +36,7 @@ export default function Projects() {
             github: 'https://github.com',
         },
         {
-            id: 2,
+            id: 3,
             title: 'CI/CD Pipeline — Hybrid (Node.js)',
             description:
                 'Production-ready CI/CD pipeline combining GitHub Actions and Jenkins for automated testing, quality checks, security scanning, and containerized deployments.',
@@ -36,7 +52,7 @@ export default function Projects() {
             github: 'https://github.com',
         },
         {
-            id: 3,
+            id: 4,
             title: 'CI/CD Pipeline — Python Application',
             description:
                 'Automated testing and deployment pipeline for Python applications with multi-stage Docker optimization and GitHub Container Registry integration.',
@@ -52,7 +68,7 @@ export default function Projects() {
             github: 'https://github.com',
         },
         {
-            id: 4,
+            id: 5,
             title: 'MediReminder — Medication Management App',
             description:
                 'Full-stack web application helping users schedule medication reminders and track treatment adherence with real-time notifications.',
@@ -68,7 +84,7 @@ export default function Projects() {
             github: 'https://github.com',
         },
         {
-            id: 5,
+            id: 6,
             title: 'Student Performance Prediction',
             description:
                 'Data science project predicting student dropout risk using machine learning models and comprehensive feature engineering on academic data.',
@@ -83,7 +99,7 @@ export default function Projects() {
             github: 'https://github.com',
         },
         {
-            id: 6,
+            id: 7,
             title: 'Personal Portfolio Website',
             description:
                 'Modern, responsive portfolio website showcasing projects and technical skills with smooth animations and dark mode support.',

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 import profileImage from '../assets/profile.jpg'
 
 export default function Hero({ setCurrentSection }) {
@@ -118,30 +118,36 @@ export default function Hero({ setCurrentSection }) {
 
                         <motion.div
                             variants={itemVariants}
-                            className="mt-12 flex gap-6 text-dark-600 dark:text-dark-400"
+                            className="mt-12 flex gap-6"
                         >
-                            <a
+                            <motion.a
                                 href="https://github.com/AbdelkarimEzzhar"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-100 dark:bg-dark-800 text-dark-700 dark:text-dark-300 hover:bg-primary-600 hover:text-white transition-colors font-medium"
                             >
+                                <Github size={20} />
                                 GitHub
-                            </a>
-                            <a
+                            </motion.a>
+                            <motion.a
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-100 dark:bg-dark-800 text-dark-700 dark:text-dark-300 hover:bg-primary-600 hover:text-white transition-colors font-medium"
                             >
+                                <Linkedin size={20} />
                                 LinkedIn
-                            </a>
-                            <a
+                            </motion.a>
+                            <motion.a
                                 href="mailto:abdelkarimezzhar47@gmail.com"
-                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-100 dark:bg-dark-800 text-dark-700 dark:text-dark-300 hover:bg-primary-600 hover:text-white transition-colors font-medium"
                             >
+                                <Mail size={20} />
                                 Email
-                            </a>
+                            </motion.a>
                         </motion.div>
                     </motion.div>
 
