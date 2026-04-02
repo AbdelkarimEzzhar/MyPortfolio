@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import AnimatedBackground from './components/AnimatedBackground'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Skills from './sections/Skills'
@@ -30,12 +31,13 @@ export default function App() {
 
     return (
         <div className={isDark ? 'dark' : ''}>
-            <div className="min-h-screen bg-white dark:bg-dark-950 text-dark-950 dark:text-white transition-colors duration-300">
+            <div className="min-h-screen bg-white dark:bg-dark-950 text-dark-950 dark:text-white transition-colors duration-300 relative">
+                <AnimatedBackground />
                 <Header isDark={isDark} setIsDark={setIsDark} currentSection={currentSection} setCurrentSection={setCurrentSection} />
-                <main className="min-h-[calc(100vh-80px)]">
+                <main className="min-h-[calc(100vh-80px)] relative z-10">
                     {sections[currentSection]}
                 </main>
-                <Footer />
+                <Footer setCurrentSection={setCurrentSection} />
             </div>
         </div>
     )

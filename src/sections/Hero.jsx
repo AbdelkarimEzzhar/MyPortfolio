@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail, Download } from 'lucide-react'
 import profileImage from '../assets/profile.jpg'
+import resumePDF from '../assets/EzzharCV.pdf'
 
 export default function Hero({ setCurrentSection }) {
     const [currentTagline, setCurrentTagline] = useState(0)
@@ -105,6 +106,17 @@ export default function Hero({ setCurrentSection }) {
                                 View My Work
                                 <ArrowRight size={20} />
                             </motion.button>
+
+                            <motion.a
+                                href={resumePDF}
+                                download="EzzharCV.pdf"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold transition-colors"
+                            >
+                                Download CV
+                                <Download size={20} />
+                            </motion.a>
 
                             <motion.a
                                 href="mailto:abdelkarimezzhar47@gmail.com"
